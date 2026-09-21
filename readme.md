@@ -61,3 +61,7 @@ Tasks:
 
 -marking tasks as complete is not a feature in this program
 -deleting tasks is not possible in this program
+
+## Version Control
+
+this project uses git for local version control and github for its remote repository

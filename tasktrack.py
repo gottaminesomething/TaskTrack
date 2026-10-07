@@ -70,6 +70,18 @@ def save_tasks(tasks, filename):
         #TODO: Write each task followed by a newline character.
             file.write(f"{x}\n")
 
+def remove_task_by_number(tasks, task_number):
+    """Remove a task by its displayed number and return the removed task.
+
+    Return None when the task number is outside the valid range.
+    """
+    #TODO: Validate the task number.
+
+    #TODO: Remove and return the selected task.
+        #Reject numbers outside the valid task range.
+    if task_number < 1 or task_number > len(tasks):
+        return None
+    return tasks.pop(task_number - 1)
 def remove_task(tasks):
     """Prompt the user to select and remove a task.
 
@@ -89,18 +101,12 @@ def remove_task(tasks):
         print("Please enter a valid task number.")
         return False
     task_number = int(selection)
-
-    #Reject numbers outside the valid task range.
-    if task_number < 1 or task_number > len(tasks):
-        print("That task number does not exist.")
+    if remove_task_by_number(tasks, task_number) is None:
+        print("out of range")
         return False
-    #Remove the selected task from the list.
-    # Remember that displayed task numbers begin at 1,
-    # while Python list indexes begin at 0.
-    tasks.pop(task_number - 1)
-    #Display a confirmation containing the removed task.
-    print("task removed successfully")
-    return True
+    else:
+        print("task removed successfully")
+        return True
 
 def main():
     """Run the TaskTrack menu until the user chooses to exit."""
